@@ -150,6 +150,9 @@ class SlackClient(object):
     def get_channel(self, channel_id):
         return Channel(self, self.channels[channel_id])
 
+    def get_permalink(self, channel, message_ts):
+        return self.webapi.chat.get_permalink(channel, message_ts)
+
     def find_channel_by_name(self, channel_name):
         for channel_id, channel in iteritems(self.channels):
             try:

@@ -289,6 +289,10 @@ class Message(object):
 
         return thread_ts
 
+    @property
+    def permalink(self):
+        return self._client.get_permalink(self.channel, self.thread_ts)
+
     def docs_reply(self):
         reply = [u'    • `{0}` {1}'.format(v.__name__, v.__doc__ or '')
                  for _, v in
